@@ -7,5 +7,5 @@ urlpatterns = [
     # url(r'', HelloView.as_view(), name='index')
     # path('', views.index, name='index'),
     # path('form', views.form, name='form')
-    ## path('next', views.next, name='next')
+    # path('next', views.next, name='next')
 ]
