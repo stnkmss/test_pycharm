@@ -13,6 +13,7 @@ def index(request):
         'form': HelloForm(),
         'data': [],
     }
+
     if request.method == 'POST':
         num = request.POST['id']
         item = Friend.objects.get(id=num)
