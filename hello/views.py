@@ -1,19 +1,34 @@
 from django.shortcuts import render
 from django.http import HttpResponse  # クライアントへ返す内容を管理
 from django.views.generic import TemplateView
-from .forms import HelloForm
+from django.shortcuts import redirect
 from .models import Friend
+from .forms import FriendForm
 
 
 def index(request):
-    # data = Friend.objects.all()
+    data = Friend.objects.all()
     params = {
         'title': 'Hello',
-        'message': 'all friends.',
-        'form': HelloForm(),
-        'data': [],
+        'data': data,
     }
+    return render(request, 'hello/index.html', params)
 
+
+def create(request):
+    if request.method == 'POST':
+        obj = Friend()
+        friend = FriendForm(request.POST, instance=obj)
+        friend.save()
+        return redirect(to='/hello')
+    params = {
+        'title': 'Hello',
+        'form': FriendForm(),
+    }
+    return render(request, 'hello/create.html', params)
+
+
+"""
     if request.method == 'POST':
         num = request.POST['id']
         item = Friend.objects.get(id=num)
@@ -21,8 +36,7 @@ def index(request):
         params['form'] = HelloForm(request.POST)
     else:
         params['data'] = Friend.objects.all()
-    return render(request, 'hello/index.html', params)
-
+"""
 
 """
 class HelloView(TemplateView):

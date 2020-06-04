@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('create', views.create, name='create')
     # url(r'', HelloView.as_view(), name='index')
     # path('', views.index, name='index'),
     # path('form', views.form, name='form')
