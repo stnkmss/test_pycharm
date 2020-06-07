@@ -18,7 +18,7 @@
         <tr><th>Email</th><td>{{obj.mail}}</td></tr>
         <tr><th>Age</th><td>{{obj.age}}</td></tr>
         <tr><th>Birth</th><td>{{obj.birthday}}</td></tr>
-        <form action"{% url 'delete' id %}" method="post">
+        <form action="{% url 'delete' id %}" method="post">
         {% csrf_token %}
         <tr><th></th><td><input type="submit" value="click"></td></tr>
         </form>

@@ -11,3 +11,7 @@ class FriendForm(forms.ModelForm):
     # name = forms.CharField(label='name')
     # mail = forms.CharField(label='mail')
     # age = forms.IntegerField(label='age')
+
+
+class FindForm(forms.Form):
+    find = forms.CharField(label='Find', required=False)
